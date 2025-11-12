@@ -34,10 +34,7 @@ resource "terraform_data" "mongodb" {
     ]
   }
   }
-  output "subnet_id" {
-    value = aws_instance.mongodb.subnet_id
-    
-  }
+  
 # resource "aws_instance" "redis" {
 #     ami = local.ami_id
 #     instance_type = "t3.micro"
