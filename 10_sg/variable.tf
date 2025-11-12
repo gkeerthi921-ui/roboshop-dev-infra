@@ -8,7 +8,7 @@ variable "environment" {
 #   default = ["mongodb","cart","mysql",
 #   "bastion","loadbalancer","backend_alb","backend"]
 # }
-variable "sg_names" {
+variable "sg_name" {
     default = [
         # databases
         "mongodb", "redis", "mysql", "rabbitmq",
