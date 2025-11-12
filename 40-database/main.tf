@@ -1,7 +1,7 @@
 resource "aws_instance" "mongodb" {
-    ami = data.aws_ami.joindevops
+    ami = local.ami_id
     instance_type = "t3.micro"
-    vpc_security_group_ids = [local. monogodb_sg_id]
+    vpc_security_group_ids = [local.mongodb_sg_id]
     tags = merge (
         local.common_tags,
         {
