@@ -26,7 +26,7 @@ resource "terraform_data" "mongodb" {
     destination = "/tmp/bootstrap.sh"
    }
 
-  provisioner "remote-exec" {
+  provisioner "remote-exec" { # it will runeither creation or destroy time so to run it we need to use taint
     inline = [
         "chmod +x /tmp/bootstrap.sh", # to give execute acces
         # "sudo sh /tmp/bootstrap.sh"
