@@ -21,14 +21,14 @@ resource "terraform_data" "mongodb" {
     password = "DevOps321"
     host     = aws_instance.mongodb.private_ip
   }
-   provisioner "file" {
+   provisioner "file" {   # copy the file from terraform to ec2
     source = "bootstrap.sh"
     destination = "/tmp/bootstrap.sh"
    }
 
   provisioner "remote-exec" {
     inline = [
-        "chmod +x /tmp/bootstrap.sh",
+        "chmod +x /tmp/bootstrap.sh", # to give execute acces
         # "sudo sh /tmp/bootstrap.sh"
         "sudo sh /tmp/bootstrap.sh mongodb"
     ]
