@@ -1,8 +1,7 @@
 resource "aws_instance" "mongodb" {
-    ami = local.ami_id
+    ami = data.aws_ami.joindevops
     instance_type = "t3.micro"
-    vpc_security_group_ids = [local.mongodb_sg_id]
-    subnet_id = local.database_subnet_id
+    vpc_security_group_ids = [local. monogodb_sg_id]
     tags = merge (
         local.common_tags,
         {
@@ -21,10 +20,10 @@ resource "terraform_data" "mongodb" {
     password = "DevOps321"
     host     = aws_instance.mongodb.private_ip
   }
-   provisioner "file" {
-    source = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
-   }
+  # provisioner "file" {
+  #   source = "bootstrap.sh"
+  #   destination = "/tmp/bootstrap.sh"
+  # }
 
   provisioner "remote-exec" {
     inline = [
@@ -34,7 +33,6 @@ resource "terraform_data" "mongodb" {
     ]
   }
   }
-  
 # resource "aws_instance" "redis" {
 #     ami = local.ami_id
 #     instance_type = "t3.micro"
