@@ -4,7 +4,7 @@ variable "project_name"{
 variable "environment" {
     default = "dev"  
 }
-variable "sg_names" {
+variable "sg_name" {
     default = [
         # databases
         "mongodb", "redis", "mysql", "rabbitmq",
