@@ -130,7 +130,7 @@ resource "aws_instance" "mysql" {
     )
 }
 
-resource "aws_iam_instance_profile" "mysql" {
+resource "aws_iam_instance_profile" "mysql" {# to assign roole to mysql
   name = "mysql"
   role = "EC2SSMParameterRead"
 }
